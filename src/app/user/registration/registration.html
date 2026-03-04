@@ -1,0 +1,36 @@
+<div class="mb-4 h2 text-success text-center">
+  Create Your Account
+</div>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="mb-3">
+    <input
+      class="form-control bg-body-secondary"
+      formControlName="fullname"
+      placeholder="Full Name"
+    />
+  </div>
+   <div class="mb-3">
+    <input
+      class="form-control bg-body-secondary"
+      formControlName="email"
+      placeholder="Email"
+    />
+  </div>
+   <div class="mb-3">
+    <input
+      class="form-control bg-body-secondary"
+      formControlName="password"
+      placeholder="Password"
+    />
+  </div>
+   <div class="mb-3">
+    <input
+      class="form-control bg-body-secondary"
+      formControlName="confirmPassword"
+      placeholder="Confirm Password"
+    />
+  </div>
+    <div class="mt-4">
+        <button class="btn btn-success w-100 rounded-3 " type="submit">Register</button>
+    </div>
+</form>
