@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
 import { Registration } from "./registration/registration";
+import { RouterOutlet } from "@angular/router";
 
 @Component({
   selector: 'app-user',
-  imports: [Registration],
+  imports: [Registration, RouterOutlet],
   templateUrl: './user.html',
-  styles: ``,
+   styleUrls: ['./user.css'],
+  styles: '',
 })
 export class User {
 

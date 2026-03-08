@@ -1,13 +1,53 @@
-<div class="container">
-  <div class="row vh-100 align-items-center">
-    <div class="col-xxl-4 offset-xxl-4 col-lg-6 offset-lg-3 col-10 offset-1">
-      <div class="rounded-4 border-0 shadow-lg bg-white" style="min-height: 450px">
-        <div class="d-flex justify-content-start align-items-center">
-          <div class="p-5 w-100">
-            <app-registration></app-registration>
+<!-- <div class="auth-wrapper">
+  <div class="shape shape-1"></div>
+  <div class="shape shape-2"></div>
+
+  <div class="container">
+    <div class="row vh-100 align-items-center justify-content-center">
+      <div class="col-xxl-4 col-xl-5 col-lg-6 col-md-8 col-12">
+        <div class="modern-card">
+          <div class="card-body p-4 p-sm-5">
+            <div class="text-center mb-4">
+              <div class="brand-logo mb-3">
+                <i class="bi bi-person-plus-fill"></i> 
+              </div>
+              <h3 class="fw-bold text-dark">Welcome!</h3>
+            </div>
+            <router-outlet/>
           </div>
         </div>
       </div>
+    </div>
+  </div>
+</div> -->
+<div class="auth-wrapper">
+  <div class="shape shape-1"></div>
+  <div class="shape shape-2"></div>
+
+  <div class="container-fluid p-0">
+    <div class="row vh-100 g-0">
+      
+      <div class="col-lg-6 d-none d-lg-flex align-items-center justify-content-center side-image-container">
+        <div class="logo-wrapper">
+          <img src="assets/auth-logo.png" alt="Auth Logo" class="side-logo shadow-lg">
+          <div class="logo-blob"></div>
+        </div>
+      </div>
+
+      <div class="col-lg-6 col-12 d-flex align-items-center justify-content-center p-4">
+        <div class="modern-card">
+          <div class="card-body p-4 p-sm-5">
+            <div class="text-center mb-4">
+              <div class="d-lg-none mb-3">
+                <img src="assets/auth-logo.png" alt="Logo" style="width: 80px;">
+              </div>
+              <h3 class="fw-bold  premium-welcome">Welcome!</h3>
+            </div>
+            <router-outlet></router-outlet>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </div>

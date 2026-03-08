@@ -1,36 +1,108 @@
-<div class="mb-4 h2 text-success text-center">
-  Create Your Account
+<div class="form-header text-center mb-4">
+  <h2 class="fw-bold gradient-text">Create Account</h2>
+  <div class="text-muted small">
+    Already have an account? 
+    <a routerLink="/signin"  class="login-link fw-bold">Sign in</a>
+  </div>
 </div>
-<form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="modern-form">
+  
+  <!-- Full Name -->
   <div class="mb-3">
-    <input
-      class="form-control bg-body-secondary"
-      formControlName="fullname"
-      placeholder="Full Name"
-    />
-  </div>
-   <div class="mb-3">
-    <input
-      class="form-control bg-body-secondary"
-      formControlName="email"
-      placeholder="Email"
-    />
-  </div>
-   <div class="mb-3">
-    <input
-      class="form-control bg-body-secondary"
-      formControlName="password"
-      placeholder="Password"
-    />
-  </div>
-   <div class="mb-3">
-    <input
-      class="form-control bg-body-secondary"
-      formControlName="confirmPassword"
-      placeholder="Confirm Password"
-    />
-  </div>
-    <div class="mt-4">
-        <button class="btn btn-success w-100 rounded-3 " type="submit">Register</button>
+    <div class="input-group-custom">
+      <span class="input-icon"><i class="bi bi-person"></i></span>
+      <input
+        type="text"
+        class="form-control-modern"
+        [class.is-invalid]="hasError('fullname')"
+        formControlName="fullname"
+        placeholder="Full Name"
+      />
     </div>
+    <div class="error-feedback" *ngIf="hasError('fullname')">
+      Full name is required.
+    </div>
+  </div>
+ <!-- User Name -->
+  <div class="mb-3">
+    <div class="input-group-custom">
+      <span class="input-icon"><i class="bi bi-person"></i></span>
+      <input
+        type="text"
+        class="form-control-modern"
+        [class.is-invalid]="hasError('userName')"
+        formControlName="userName"
+        placeholder="User Name"
+      />
+    </div>
+    <div class="error-feedback" *ngIf="hasError('userName')">
+      User name is required.
+    </div>
+  </div>
+
+  <!-- Email -->
+  <div class="mb-3">
+    <div class="input-group-custom">
+      <span class="input-icon"><i class="bi bi-envelope"></i></span>
+      <input
+        type="email"
+        class="form-control-modern"
+        [class.is-invalid]="hasError('email')"
+        formControlName="email"
+        placeholder="Email Address"
+      />
+    </div>
+    <div class="error-feedback" *ngIf="hasError('email')">
+      <span *ngIf="form.get('email')?.hasError('required')">Email is required.</span>
+      <span *ngIf="form.get('email')?.hasError('email')">Enter a valid email.</span>
+    </div>
+  </div>
+
+  <!-- Password -->
+  <div class="mb-3">
+    <div class="input-group-custom">
+      <span class="input-icon"><i class="bi bi-lock"></i></span>
+      <input
+        type="password"
+        class="form-control-modern"
+        [class.is-invalid]="hasError('password')"
+        formControlName="password"
+        placeholder="Password"
+      />
+    </div>
+    <div class="error-feedback" *ngIf="hasError('password')">
+  <ng-container [ngSwitch]="form.controls.password.errors | firstKey">
+    <span *ngSwitchCase="'required'">Password is required.</span>
+    <span *ngSwitchCase="'pattern'">Must have Uppercase, lowercase, number & special char.</span>
+    <span *ngSwitchCase="'minlength'">Min 6 characters.</span>
+    <span *ngSwitchCase="'maxlength'">Max 20 characters.</span>
+  </ng-container>
+</div>
+  </div>
+
+  <!-- Confirm Password -->
+  <div class="mb-3">
+    <div class="input-group-custom">
+      <span class="input-icon"><i class="bi bi-shield-check"></i></span>
+      <input
+        type="password"
+        class="form-control-modern"
+        [class.is-invalid]="hasError('confirmPassword') || form.hasError('passwordMismatch')"
+        formControlName="confirmPassword"
+        placeholder="Confirm Password"
+      />
+    </div>
+    <div class="error-feedback" *ngIf="hasError('confirmPassword') || (isSubmitted && form.hasError('passwordMismatch'))">
+      <span *ngIf="form.hasError('passwordMismatch')">Passwords do not match.</span>
+      <span *ngIf="!form.hasError('passwordMismatch') && form.get('confirmPassword')?.hasError('required')">Please confirm password.</span>
+    </div>
+  </div>
+
+  <div class="mt-4">
+    <button class="btn-modern-submit" type="submit">
+      <span>Register Now</span>
+      <i class="bi bi-arrow-right-short ms-2"></i>
+    </button>
+  </div>
 </form>

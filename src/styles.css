@@ -2,3 +2,45 @@
 body {
   font-family: 'Inter', sans-serif;
 }
+.error-feedback {
+  color: #e74c3c;
+  font-size: 0.875rem;
+  margin-top: 0.25rem !important;
+}
+.toast-success {
+  background-color: #28a745 !important;
+    background: linear-gradient(45deg,#00c851,#007e33) !important;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+.toast-error {
+  background-color: #dc3545 !important;
+    background: linear-gradient(45deg,#ff4444,#cc0000) !important;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+.toast-warning {
+  background-color: #ffc107 !important;
+   background: linear-gradient(45deg,#ffbb33,#ff8800) !important;
+}
+
+.toast-info {
+  background-color: #17a2b8 !important;
+}
+.toast-container .ngx-toastr {
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
